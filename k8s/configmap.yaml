@@ -11,7 +11,7 @@ data:
       <title>GitOps Demo</title>
       <style>
         body {
-          background-color: #3498db;
+          background-color: #27ae60;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -32,9 +32,9 @@ data:
     </head>
     <body>
       <div class="card">
-        <h1>🚀 Version 1</h1>
+        <h1>🚀 Version 2</h1>
         <p>Deployed via GitOps + ArgoCD</p>
-        <p>Background: <strong>Blue</strong></p>
+        <p>Background: <strong>Green</strong></p>
       </div>
     </body>
     </html>
