@@ -18,11 +18,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
-    steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Set build number
         id: vars
@@ -48,10 +48,12 @@ jobs:
           sed -i "s|image: ${{ env.IMAGE_NAME }}:.*|image: ${{ env.IMAGE_NAME }}:${{ github.run_number }}|g" k8s/deployment.yaml
           sed -i "s|value: \"[0-9]*\"  # BUILD|value: \"${{ github.run_number }}\"  # BUILD|g" k8s/deployment.yaml
 
-      - name: Commit and push manifest change
+      -- name: Commit and push manifest change
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add k8s/deployment.yaml
+          git diff --cached --quiet && exit 0
           git commit -m "ci: update image to build ${{ github.run_number }}"
-          git push
+          git pull --rebase origin main            
+          git push origin main
