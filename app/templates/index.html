@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitOps Demo App</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 60px 80px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+    .badge {
+      background: linear-gradient(90deg, #e94560, #0f3460);
+      color: white;
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-size: 0.85em;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+    h1 {
+      color: white;
+      font-size: 3.5em;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .version {
+      color: #e94560;
+      font-size: 2em;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .info {
+      color: rgba(255,255,255,0.6);
+      font-size: 1em;
+      margin: 8px 0;
+    }
+    .info span {
+      color: #53d8fb;
+      font-weight: 600;
+    }
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #e94560, #53d8fb);
+      margin: 24px auto;
+      border-radius: 2px;
+    }
+    .footer {
+      margin-top: 32px;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.85em;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">🚀 GitOps + ArgoCD + GitHub Actions</div>
+    <h1>GitOps Demo</h1>
+    <div class="version">Version {{ version }}</div>
+    <div class="divider"></div>
+    <p class="info">Build: <span>#{{ build }}</span></p>
+    <p class="info">Deployed by: <span>ArgoCD</span></p>
+    <p class="info">Pipeline: <span>GitHub Actions</span></p>
+    <p class="info">Cluster: <span>Azure AKS</span></p>
+    <div class="footer">
+      Changes to this page are driven entirely by Git commits ✨
+    </div>
+  </div>
+</body>
+</html>
