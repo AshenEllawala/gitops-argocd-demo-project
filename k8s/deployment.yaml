@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: gitops-app
-        image: ashenellawala/gitops-demo-app:5
+        image: ashenellawala/gitops-demo-app:6
         ports:
         - containerPort: 5000
         env:
